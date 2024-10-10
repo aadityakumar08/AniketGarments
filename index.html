@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Shop Inventory</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Clothing Shop Inventory</h1>
+        
+        <!-- Search and Filter -->
+        <div>
+            <input type="text" id="searchInput" placeholder="Search for clothing..." oninput="searchInventory()">
+            <select id="categoryFilter" onchange="filterByCategory()">
+                <option value="All">All Categories</option>
+                <option value="Tops">Tops</option>
+                <option value="Bottoms">Bottoms</option>
+                <option value="Dresses">Dresses</option>
+            </select>
+        </div>
+
+        <!-- Add clothing -->
+        <h3>Add New Clothes</h3>
+        <input type="text" id="clothingName" placeholder="Clothing Name">
+        <input type="number" id="clothingQuantity" placeholder="Quantity">
+        <input type="number" id="clothingPrice" placeholder="Selling Price">
+        <input type="number" id="clothingCost" placeholder="Cost Price">
+        <input type="number" id="lowStockAlert" placeholder="Low Stock Alert">
+        <select id="category">
+            <option value="Tops">Tops</option>
+            <option value="Bottoms">Bottoms</option>
+            <option value="Dresses">Dresses</option>
+        </select>
+        <button class="button" onclick="addClothing()">Add to Inventory</button>
+
+        <!-- Sell clothes -->
+        <h3>Sell Clothes</h3>
+        <input type="text" id="sellClothingName" placeholder="Clothing Name">
+        <input type="number" id="sellClothingQuantity" placeholder="Quantity to Sell">
+        <button class="button" onclick="sellClothing()">Sell</button>
+
+        <!-- Inventory table -->
+        <h3>Inventory</h3>
+        <p>Profit: <span id="profitValue">₹0.00</span></p>
+        <button class="button clear-button" onclick="clearInventory()">Clear Inventory</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Clothing Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Cost</th>
+                    <th>Low Stock Alert</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryTable"></tbody>
+        </table>
+
+        <!-- Stock History -->
+        <h3>Stock History</h3>
+        <ul id="stockHistory"></ul>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>
